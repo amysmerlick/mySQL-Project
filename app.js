@@ -28,8 +28,6 @@ function runSearch() {
           'view all employees by Manager',
           'Add an Employee',
           'Remove an Employee',
-          'Update Employee Role',
-          'Update Employee Manager',
           'exit',
         ],
       }
@@ -63,28 +61,15 @@ function runSearch() {
     //connection.end();
   });
 };
-// function viewAllRoles() {
-//   connection.query('SELECT * FROM roles', (err, res) => {
-//     if (err) throw err;
-//     // Log all results of the SELECT statement
-//     console.table(res);
-//     connection.end();
-//   });
-// };
+
 function viewAllByDepartments() {
   let query = 'SELECT first_name, last_name, title, salary FROM employee LEFT JOIN roles ON employee.id = roles.id';
   connection.query(query, (err, res) => {
     if (err) throw err;
     // Log all results of the SELECT statement
     console.table(res);
-    // connection.end(); (err, res) => {
-    //   if (err) throw err;
-    //   // Log all results of the SELECT statement
-    //   console.table(res);
-      //connection.end();
-      runSearch();
-    });
-    
+    runSearch();
+    });    
 };
 
 function viewAllByManagers() {
@@ -93,14 +78,8 @@ function viewAllByManagers() {
     if (err) throw err;
     // Log all results of the SELECT statement
     console.table(res);
-    // connection.end(); (err, res) => {
-    //   if (err) throw err;
-    //   // Log all results of the SELECT statement
-    //   console.table(res);
-      //connection.end();
-      runSearch();
-    });
-    
+    runSearch();
+    });    
 };
 
 const removeEmployee = () => {
@@ -109,7 +88,6 @@ const removeEmployee = () => {
     if (err) throw err;
     // Log all results of the SELECT statement
     console.table(res);
-
     inquirer.prompt(
       [
         {
@@ -119,7 +97,6 @@ const removeEmployee = () => {
         }
       ]
     ).then((answers) => {
-
       console.log('Deleting employee...\n');
       connection.query(
         'DELETE FROM employee WHERE ?',
@@ -132,21 +109,12 @@ const removeEmployee = () => {
           // Call readProducts AFTER the DELETE completes
           runSearch();
         }
-      );
-      
-
-      
+      );  
     })
-
-    
-    //connection.end();
-  });
-
-  
+  });  
 }
 
 const addEmployee = () => {
-
   let questions = [
     {
       type: 'input',
@@ -183,8 +151,5 @@ const addEmployee = () => {
         runSearch();
       }
     );
-    
   })
-
-
 }
