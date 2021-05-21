@@ -24,6 +24,8 @@ function runSearch() {
         message: 'What would you like to do?',
         choices: [
           'view all employees',
+          'view all departments',
+          'view all roles',
           'view all employees by department',
           'view all employees by Manager',
           'Add an Employee',
@@ -39,6 +41,10 @@ function runSearch() {
       return
     } else if (answers.action === 'view all employees') {
       viewAllEmployees()
+    } else if (answers.action === 'view all departments') {
+      viewDepartments()
+    } else if (answers.action === 'view all roles') {
+      viewRoles()
     } else if (answers.action === 'view all employees by department') {
       viewAllByDepartments()
     } else if (answers.action === 'view all employees by Manager') {
@@ -50,10 +56,30 @@ function runSearch() {
     }
   }
   );
-}
+};
 
   function viewAllEmployees() {
   connection.query('SELECT * FROM employee', (err, res) => {
+    if (err) throw err;
+    // Log all results of the SELECT statement
+    console.table(res);
+    runSearch();
+    //connection.end();
+  });
+};
+
+function viewDepartments() {
+  connection.query('SELECT * FROM department', (err, res) => {
+    if (err) throw err;
+    // Log all results of the SELECT statement
+    console.table(res);
+    runSearch();
+    //connection.end();
+  });
+};
+
+function viewRoles() {
+  connection.query('SELECT * FROM roles', (err, res) => {
     if (err) throw err;
     // Log all results of the SELECT statement
     console.table(res);
