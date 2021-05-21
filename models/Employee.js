@@ -1,5 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../db/connection');
+const sequelize = require('../db/connection.js');
 
 class Employee extends Model {}
 
@@ -34,7 +34,7 @@ Employee.init(
         references: {
           model: 'employee',
           key: 'id'
-        }
+      },
     }
   },
   {
