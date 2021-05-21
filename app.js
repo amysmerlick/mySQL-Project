@@ -62,9 +62,8 @@ function runSearch() {
   connection.query('SELECT * FROM employee', (err, res) => {
     if (err) throw err;
     // Log all results of the SELECT statement
-    console.table(res);
+    console.table(res); 
     runSearch();
-    //connection.end();
   });
 };
 
@@ -74,7 +73,6 @@ function viewDepartments() {
     // Log all results of the SELECT statement
     console.table(res);
     runSearch();
-    //connection.end();
   });
 };
 
@@ -84,7 +82,6 @@ function viewRoles() {
     // Log all results of the SELECT statement
     console.table(res);
     runSearch();
-    //connection.end();
   });
 };
 
