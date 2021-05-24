@@ -30,6 +30,7 @@ function runSearch() {
           'view all employees by Manager',
           'Add an Employee',
           'Remove an Employee',
+          'Change employee role',
           'exit',
         ],
       }
@@ -53,6 +54,8 @@ function runSearch() {
       addEmployee()
     }  else if (answers.action === 'Remove an Employee') {
       removeEmployee()
+    } else if (answers.action === 'Change employee role') {
+      changeEmployeeRole()
     }
   }
   );
@@ -176,3 +179,36 @@ const addEmployee = () => {
     );
   })
 }
+// const changeEmployeeRole = () => {
+//   let newquestions = [
+//     {
+//       type: 'input',
+//       name: "first_name",
+//       message: "What is the new employee's first name"
+//     },
+//     {
+//       type: 'input',
+//       name: "last_name",
+//       message: "What is the new employee's last name"
+//     },
+//     {
+//       type: 'number',
+//       name: "roles_id",
+//       message: "What is the new employee's role"
+//     }
+//   ]
+
+//   inquirer.prompt(newquestions)
+//   .then((answers) => {
+
+//   connection.query(
+//     'INSERT INTO role SET ?',
+//     answers,
+//     (err, res) => {
+//       if (err) throw err;
+//       console.log(`Employee role changed\n`);
+//     runSearch();
+//     }
+//     );
+//   })
+// }
