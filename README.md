@@ -21,7 +21,7 @@ Install npm, dotenv, inquirer, mysql, console-table-printer, console.table
 
   # Usage
 Please click on the included url for the walthrough video which demonstrates how to use this tool
-https://drive.google.com/file/d/1T8Nsr0s0RfIpy6pyTzF0gx9qGmRmxTdp/view
+https://drive.google.com/file/d/1T8Nsr0s0RfIpy6pyTzF0gx9qGmRmxTdp/view?usp=sharing
 
 ![Tables)](https://user-images.githubusercontent.com/77814900/119187764-c970f680-ba47-11eb-84d5-396a3f196b0a.png)
 
